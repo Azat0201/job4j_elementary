@@ -8,13 +8,12 @@ public class Counter {
     }
 
     public static int sumByEven(int start, int finish) {
-        int sum = 0;
-        for (int i = start; i <= finish; i++) {
-            if (i % 2 == 0) {
-                sum += i;
-            }
+        if (start > finish) {
+            return 0;
         }
-        return sum;
+        start = start % 2 == 0 ? start : start + 1;
+        finish = finish % 2 == 0 ? finish : finish - 1;
+        return (start + finish) * ((finish - start) / 2 + 1) / 2;
     }
 
     public static void main(String[] args) {
